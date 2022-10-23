@@ -76,7 +76,7 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 # nvim config
-wget https://gist.githubusercontent.com/andreasuvoss/5c890bb8c60d68f3d4fa3c618c220df0/raw/5531450e81b18cf31d2255bc672686aa9cf3ab9c/init.vim && mkdir -p ~/.config/nvim && mv -f init.vim ~/.config/nvim
+wget https://raw.githubusercontent.com/andreasuvoss/fedora-setup/main/nvim/init.vim && mkdir -p ~/.config/nvim && mv -f init.vim ~/.config/nvim
 
 # Themes
 mkdir -p ~/temp-themes && git clone https://github.com/vinceliuice/Matcha-gtk-theme.git ~/temp-themes && ~/temp-themes/install.sh; rm -rf ~/temp-themes
