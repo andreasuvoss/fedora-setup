@@ -105,14 +105,3 @@ if ! grep -q ssh.dev.azure.com ~/.ssh/config; then
 	echo -e "Host ssh.dev.azure.com\n\tUser git\n\tPubkeyAcceptedAlgorithms +ssh-rsa\n\tHostkeyAlgorithms +ssh-rsa" >> ~/.ssh/config;
 	chmod 600 ~/.ssh/config;
 fi
-
-# Oh My Zsh - This needs to be done as the last thing in stage one
-# Default installation is fine for now, theme and plugins can be added later - This installation hijacks the script and stops  further execution
-if [ ! -d ~/.oh-my-zsh ] 
-then
-	sudo dnf install -y zsh util-linux-user
-	chsh -s $(which zsh)
-	sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)";
-else
-	echo "Oh My Zsh already installed";
-fi

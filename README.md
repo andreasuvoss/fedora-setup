@@ -24,3 +24,13 @@ In order for Rider to create a shortcut you need to run it once. Do it from the 
 ```
 /opt/JetBrains\ Rider-2022.2.3/bin/rider.sh
 ```
+
+### NuGet restore in Rider
+The installation script already installs and sets up the required CredentialProvider plugin, however you need to set that in Rider aswell. On the following screenshot, you will see the setting at the very bottom
+
+![Rider settings](https://github.com/andreasuvoss/fedora-setup/main/blob/rider-nuget.png?raw=true)
+Furthermore the first time you want to restore NuGet packages from a private feed, you will have to use the 
+```shell
+dotnet restore --interactive
+```
+command in the given project / solution and follow the instructions. Rider will not ask you for credentials.
