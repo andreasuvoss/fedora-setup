@@ -36,13 +36,13 @@ gsettings set org.gnome.shell favorite-apps "[\
 	'azuredatastudio.desktop',\
 	'slack.desktop',\
 	'discord.desktop',\
-	'org.remmina.Remmina.desktop'\
+	'org.remmina.Remmina.desktop',\
+	'com.spotify.Client.desktop'\
 ]"
 
 # Enable gnome extensions
 gnome-extensions enable appindicatorsupport@rgcjonas.gmail.com
 gnome-extensions enable dash-to-dock@micxgx.gmail.com
-gnome-extensions enable gTile@vibou
 
 # Git config
 git config --global user.email "andreas@anvo.dk"
@@ -54,6 +54,7 @@ gsettings set org.gnome.desktop.interface gtk-theme Matcha-dark-azul
 
 # ulauncher settings
 tmp=$(mktemp) && cat ~/.config/ulauncher/settings.json | jq '."hotkey-show-app" = "<Primary><Alt>Control_R" | ."render-on-screen" = "default-monitor" | ."theme-name" = "dark"' > "$tmp" && mv -f "$tmp" ~/.config/ulauncher/settings.json
+systemctl --user restart ulauncher
 
 ### Custom keyboard shortcuts ###
 # This might not work perfectly yet
@@ -83,16 +84,3 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/or
 # Google setup
 # gcloud auth login
 # gcloud auth configure-docker europe-west3-docker.pkg.dev
-
-# TODO: Remove everything below this line if the setup works
-#if ! grep -q NUGET_PLUGIN_PATHS ~/.zshrc; then
-#	echo "export NUGET_PLUGIN_PATHS=\"~/.nuget/plugins/netcore/CredentialProvider.Microsoft/CredentialProvider.Microsoft.dll\"" >> ~/.zshrc;
-#fi
-
-# This section might not be required - I need to test it
-#if [ "$pat" = "" ]; then
-#	echo "No Azure PAT";
-#else
-#	echo "export VSS_NUGET_EXTERNAL_FEED_ENDPOINTS='{\"endpointCredentials\": [{\"endpoint\":\"https://okamba.pkgs.visualstudio.com/_packaging/OK.Web/nuget/v3/index.json\", \"username\":\"optional\", \"password\":\"$pat\"},{\"endpoint\":\"https://okamba.pkgs.visualstudio.com/_packaging/OK.Shared/nuget/v3/index.json\", \"username\":\"optional\", \"password\":\"$pat\"}]}'" >> ~/.zshrc;
-#fi
-
