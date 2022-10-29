@@ -66,7 +66,7 @@ wget https://sqlopsbuilds.azureedge.net/stable/7553f799e175f471b7590302dd65c997b
 # Clone nvim + configure
 git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 mkdir -p ~/repos/nvim
-git clone git@github.com:andreasuvoss/nvim.git ~/repos/nvim
+git clone https://github.com/andreasuvoss/nvim.git ~/repos/nvim
 ln -sf ~/repos/nvim ~/.config
 nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
