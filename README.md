@@ -19,7 +19,7 @@ Follow the guide at https://github.com/ohmyzsh/ohmyzsh/wiki or pray and run the 
 ```shell
 sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
-### Getting Rider to show in the dock
+### Getting Rider to show in the dock (deprecated?)
 In order for Rider to create a shortcut you need to run it once. Do it from the terminal with the following command and activate it with your JetBrains account
 ```
 /opt/JetBrains\ Rider-2022.2.3/bin/rider.sh
@@ -34,3 +34,9 @@ Furthermore the first time you want to restore NuGet packages from a private fee
 dotnet restore --interactive
 ```
 command in the given project / solution and follow the instructions. Rider will not ask you for credentials.
+
+### Gnome extensions
+Not all gnome extension installations can be scripted, so a few will have to be installed manually.
+
+https://github.com/corecoding/Vitals
+https://github.com/gTile/gTile

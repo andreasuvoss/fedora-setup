@@ -1,7 +1,8 @@
 #!/bin/bash
 
-# Variables
-rider_file="JetBrains.Rider-2022.2.3.tar.gz";
+# Flatpak
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+flatpak remote-add --if-not-exists fedora oci+https://registry.fedoraproject.org
 
 # Set idle delay - Do it here to keep monitor awake during installation
 gsettings set org.gnome.desktop.session idle-delay 0
@@ -41,7 +42,10 @@ sudo chmod a+x /usr/local/bin/yq
 sudo rpm -i https://ftp.postgresql.org/pub/pgadmin/pgadmin4/yum/pgadmin4-fedora-repo-2-1.noarch.rpm
 
 # Install from default repos
-sudo dnf install -y neovim dotnet-sdk-6.0 nodejs ulauncher gnome-shell-extension-appindicator jq wmctrl google-cloud-cli gnome-shell-extension-dash-to-dock papirus-icon-theme azure-cli enpass gtk-murrine-engine gtk2-engines helm pgadmin4 ffmpeg-libs discord tilix
+sudo dnf install -y neovim dotnet-sdk-6.0 nodejs ulauncher gnome-shell-extension-appindicator jq wmctrl google-cloud-cli gnome-shell-extension-dash-to-dock papirus-icon-theme azure-cli enpass gtk-murrine-engine gtk2-engines helm pgadmin4 ffmpeg-libs discord tilix libgtop2-devel lm_sensors gnome-extensions-app gnome-tweaks remmina remmina-plugins-rdp
+
+# Install flatpaks
+sudo flatpak install --noninteractive --assumeyes com.slack.Slack com.jetbrains.Rider com.microsoft.Teams com.spotify.Client
 
 # Enable ulauncher
 systemctl --user enable --now ulauncher
@@ -56,41 +60,14 @@ sudo usermod -aG docker $USER
 sudo systemctl start docker
 sudo systemctl enable docker
 
-# gTile
-if [ ! -d ~/.local/share/gnome-shell/extensions/gTile@vibou ]; then
-	sudo dnf copr enable -y vbatts/bazel
-	sudo dnf install -y bazel4
-	mkdir -p $HOME/.local/share/gnome-shell/extensions/gTile@vibou
-	git clone https://github.com/gTile/gTile.git $HOME/.local/share/gnome-shell/extensions/gTile@vibou
-	current_dir=$(pwd)
-	cd $HOME/.local/share/gnome-shell/extensions/gTile@vibou 
-	bazel run :install-extension
-	cd $current_dir
-fi
-
 # Install Azure Data Studio
 wget https://sqlopsbuilds.azureedge.net/stable/7553f799e175f471b7590302dd65c997b838b29b/azuredatastudio-linux-1.39.1.rpm && sudo dnf -y install azuredatastudio-linux-1.39.1.rpm && rm azuredatastudio-linux-1.39.1.rpm
 
-# Install slack
-wget https://downloads.slack-edge.com/releases/linux/4.28.184/prod/x64/slack-4.28.184-0.1.el8.x86_64.rpm && sudo dnf -y install slack-4.28.184-0.1.el8.x86_64.rpm && rm slack-4.28.184-0.1.el8.x86_64.rpm
-
-# Install teams
-wget https://packages.microsoft.com/yumrepos/ms-teams/teams-1.5.00.23861-1.x86_64.rpm && sudo dnf -y install teams-1.5.00.23861-1.x86_64.rpm; rm teams-1.5.00.23861-1.x86_64.rpm
-
-# vim-plug
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-
-# nvim config
-wget https://raw.githubusercontent.com/andreasuvoss/fedora-setup/main/nvim/init.vim && mkdir -p ~/.config/nvim && mv -f init.vim ~/.config/nvim
-nvim --headless +PlugInstall +qa
-
-# Install Rider - To launch go to /opt/Jetbrains../bin and run rider.sh
-if ( ! ls /opt | grep -q Rider); then
-	wget https://download.jetbrains.com/rider/${rider_file}
-	sudo tar -xzf ${rider_file} -C /opt
-	rm ${rider_file}
-fi
+# Clone nvim + configure
+mkdir -p ~/repos/nvim
+git clone git@github.com:andreasuvoss/nvim.git ~/repos/nvim
+ln -sf ~/repos/nvim ~/.config
+nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
 # Install Tilix Dracula theme
 wget https://github.com/dracula/tilix/archive/master.zip && unzip master.zip && rm master.zip && mkdir -p ~/.config/tilix/schemes && mv -f ./tilix-master/Dracula.json ~/.config/tilix/schemes && rm -rf ./tilix-master

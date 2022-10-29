@@ -35,7 +35,8 @@ gsettings set org.gnome.shell favorite-apps "[\
 	'pgadmin4.desktop',\
 	'azuredatastudio.desktop',\
 	'slack.desktop',\
-	'discord.desktop'\
+	'discord.desktop',\
+	'org.remmina.Remmina.desktop'\
 ]"
 
 # Enable gnome extensions
