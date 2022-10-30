@@ -19,11 +19,9 @@ Follow the guide at https://github.com/ohmyzsh/ohmyzsh/wiki or pray and run the 
 ```shell
 sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
-### Getting Rider to show in the dock (deprecated?)
-In order for Rider to create a shortcut you need to run it once. Do it from the terminal with the following command and activate it with your JetBrains account
-```
-/opt/JetBrains\ Rider-2022.2.3/bin/rider.sh
-```
+### Installing Rider with JetBrains Toolbox
+Use the JetBrains toolbox to install Rider, the toolbox can be found here
+https://www.jetbrains.com/lp/toolbox/
 
 ### NuGet restore in Rider
 The installation script already installs and sets up the required CredentialProvider plugin, however you need to set that in Rider aswell. On the following screenshot, you will see the setting at the very bottom

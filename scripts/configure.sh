@@ -30,11 +30,11 @@ gsettings set org.gnome.shell favorite-apps "[\
 	'org.gnome.Nautilus.desktop',\
 	'firefox.desktop',\
 	'jetbrains-rider.desktop',\
-	'teams.desktop',\
+	'com.microsoft.Teams.desktop',\
 	'com.gexperts.Tilix.desktop',\
 	'pgadmin4.desktop',\
 	'azuredatastudio.desktop',\
-	'slack.desktop',\
+	'com.slack.Slack.desktop',\
 	'discord.desktop',\
 	'org.remmina.Remmina.desktop',\
 	'com.spotify.Client.desktop'\
@@ -79,7 +79,6 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/or
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/ name "'Terminal'"
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/ binding "'<Control><Alt>t'"
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/ command "'tilix'"
-
 
 # Google setup
 # gcloud auth login
