@@ -36,5 +36,5 @@ command in the given project / solution and follow the instructions. Rider will 
 ### Gnome extensions
 Not all gnome extension installations can be scripted, so a few will have to be installed manually.
 
-https://github.com/corecoding/Vitals
-https://github.com/gTile/gTile
+* https://github.com/corecoding/Vitals
+* https://github.com/gTile/gTile
