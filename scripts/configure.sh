@@ -32,6 +32,7 @@ gsettings set org.gnome.shell favorite-apps "[\
 	'jetbrains-rider.desktop',\
 	'com.microsoft.Teams.desktop',\
 	'com.gexperts.Tilix.desktop',\
+	'com.getpostman.Postman.desktop',\
 	'pgadmin4.desktop',\
 	'azuredatastudio.desktop',\
 	'com.slack.Slack.desktop',\
@@ -84,6 +85,10 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/or
 wget https://raw.githubusercontent.com/andreasuvoss/fedora-setup/main/config/tilix.dconf
 dconf load /com/gexperts/Tilix/ < tilix.dconf
 rm tilix.dconf
+
+# GDM Monitors
+sudo cp -v ~/.config/monitors.xml /var/lib/gdm/.config/
+sudo chown gdm:gdm /var/lib/gdm/.config/monitors.xml
 
 # Google setup
 # gcloud auth login

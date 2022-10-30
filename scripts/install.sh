@@ -26,9 +26,6 @@ sudo dnf install -y https://packages.microsoft.com/config/rhel/9.0/packages-micr
 sh -c "$(wget -O- https://aka.ms/install-artifacts-credprovider.sh)"
 rm ~/.nuget/plugins/netcore/CredentialProvider.Microsoft/CredentialProvider.Microsoft.exe
 
-# Tray icons
-sudo dnf config-manager --add-repo https://download.opensuse.org/repositories/home:SmartFinn:hardcode-tray/Fedora_$(rpm -E %fedora)/home:SmartFinn:hardcode-tray.repo
-
 # Enpass - password manager
 wget https://yum.enpass.io/enpass-yum.repo
 sudo mv -f enpass-yum.repo /etc/yum.repos.d
@@ -48,7 +45,7 @@ sudo rpm -i https://ftp.postgresql.org/pub/pgadmin/pgadmin4/yum/pgadmin4-fedora-
 sudo dnf install -y neovim dotnet-sdk-6.0 nodejs ulauncher gnome-shell-extension-appindicator jq wmctrl google-cloud-cli gnome-shell-extension-dash-to-dock papirus-icon-theme azure-cli enpass gtk-murrine-engine gtk2-engines helm pgadmin4 ffmpeg-libs discord tilix libgtop2-devel lm_sensors gnome-extensions-app gnome-tweaks remmina remmina-plugins-rdp zsh util-linux-user
 
 # Install flatpaks
-sudo flatpak install --noninteractive --assumeyes com.slack.Slack com.microsoft.Teams com.spotify.Client
+sudo flatpak install --noninteractive --assumeyes com.slack.Slack com.microsoft.Teams com.spotify.Client com.getpostman.Postman
 
 # Enable ulauncher
 systemctl --user enable --now ulauncher
