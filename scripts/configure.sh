@@ -47,6 +47,7 @@ gnome-extensions enable dash-to-dock@micxgx.gmail.com
 # Git config
 git config --global user.email "andreas@anvo.dk"
 git config --global user.name "Andreas Voss"
+git config --global --add --bool push.autoSetupRemote true
 
 # Install and apply theme
 mkdir -p ~/temp-themes && git clone https://github.com/vinceliuice/Matcha-gtk-theme.git ~/temp-themes && ~/temp-themes/install.sh; rm -rf ~/temp-themes
