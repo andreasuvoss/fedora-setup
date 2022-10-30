@@ -38,3 +38,9 @@ Not all gnome extension installations can be scripted, so a few will have to be 
 
 * https://github.com/corecoding/Vitals
 * https://github.com/gTile/gTile
+
+### Tilix config
+If changes are made to the Tilix configuration we can dump it to the tilix.dconf file.
+```shell
+dconf dump /com/gexperts/Tilix/ > config/tilix.dconf
+```
