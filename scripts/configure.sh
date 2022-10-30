@@ -80,6 +80,10 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/or
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/ binding "'<Control><Alt>t'"
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/ command "'tilix'"
 
+wget https://raw.githubusercontent.com/andreasuvoss/fedora-setup/main/config/tilix.dconf
+dconf load /com/gexperts/Tilix/ < tilix.dconf
+rm tilix.dconf
+
 # Google setup
 # gcloud auth login
 # gcloud auth configure-docker europe-west3-docker.pkg.dev
