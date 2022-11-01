@@ -41,8 +41,11 @@ sudo chmod a+x /usr/local/bin/yq
 # pgadmin repo
 sudo rpm -i https://ftp.postgresql.org/pub/pgadmin/pgadmin4/yum/pgadmin4-fedora-repo-2-1.noarch.rpm
 
+# Install zsh-completions
+sudo dnf config-manager --add-repo https://download.opensuse.org/repositories/shells:zsh-users:zsh-completions/Fedora_36/shells:zsh-users:zsh-completions.repo
+
 # Install from default repos
-sudo dnf install -y neovim dotnet-sdk-6.0 nodejs ulauncher gnome-shell-extension-appindicator jq wmctrl google-cloud-cli gnome-shell-extension-dash-to-dock papirus-icon-theme azure-cli enpass gtk-murrine-engine gtk2-engines helm pgadmin4 ffmpeg-libs discord tilix libgtop2-devel lm_sensors gnome-extensions-app gnome-tweaks remmina remmina-plugins-rdp zsh util-linux-user
+sudo dnf install -y neovim dotnet-sdk-6.0 nodejs ulauncher gnome-shell-extension-appindicator jq wmctrl google-cloud-cli gnome-shell-extension-dash-to-dock papirus-icon-theme azure-cli enpass gtk-murrine-engine gtk2-engines helm pgadmin4 ffmpeg-libs discord tilix libgtop2-devel lm_sensors gnome-extensions-app gnome-tweaks remmina remmina-plugins-rdp zsh util-linux-user zsh-completions
 
 # Install flatpaks
 sudo flatpak install --noninteractive --assumeyes com.slack.Slack com.microsoft.Teams com.spotify.Client com.getpostman.Postman
@@ -63,15 +66,19 @@ sudo systemctl enable docker
 # Install Azure Data Studio
 wget https://sqlopsbuilds.azureedge.net/stable/7553f799e175f471b7590302dd65c997b838b29b/azuredatastudio-linux-1.39.1.rpm && sudo dnf -y install azuredatastudio-linux-1.39.1.rpm && rm azuredatastudio-linux-1.39.1.rpm
 
-# Clone nvim + configure
-git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-mkdir -p ~/repos/nvim
-git clone https://github.com/andreasuvoss/nvim.git ~/repos/nvim
-ln -sf ~/repos/nvim ~/.config
-nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
-
 # Install Tilix Dracula theme
 wget https://github.com/dracula/tilix/archive/master.zip && unzip master.zip && rm master.zip && mkdir -p ~/.config/tilix/schemes && mv -f ./tilix-master/Dracula.json ~/.config/tilix/schemes && rm -rf ./tilix-master
+
+# Install zsh and nvim config 
+wget https://raw.githubusercontent.com/andreasuvoss/fedora-setup/main/config/.ideavimrc mv .ideavimrc ~; rm .ideavimrc
+git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+echo 'ZDOTDIR=$HOME/.config/zsh' > $HOME/.zshenv
+mkdir -p ~/repos/dotfiles
+git clone https://github.com/andreasuvoss/dotfiles.git ~/repos/dotfiles
+ln -sf ~/repos/dotfiles/nvim ~/.config
+ln -sf ~/repos/dotfiles/zsh ~/.config
+nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+chsh -s $(which zsh)
 
 # Generate SSH key
 if [ ! -f ~/.ssh/id_rsa ]; then

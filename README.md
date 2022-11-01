@@ -14,11 +14,6 @@ This scrips sets a lot of Gnome settings
 ```shell
 sh -c "$(wget -O- https://raw.githubusercontent.com/andreasuvoss/fedora-setup/main/scripts/configure.sh)"
 ```
-### Install Oh My Zsh
-Follow the guide at https://github.com/ohmyzsh/ohmyzsh/wiki or pray and run the script
-```shell
-sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-```
 ### Installing Rider with JetBrains Toolbox
 Use the JetBrains toolbox to install Rider, the toolbox can be found here
 https://www.jetbrains.com/lp/toolbox/
@@ -44,3 +39,12 @@ If changes are made to the Tilix configuration we can dump it to the tilix.dconf
 ```shell
 dconf dump /com/gexperts/Tilix/ > config/tilix.dconf
 ```
+
+### Add SSH Public Key to Azure
+Run command
+```shell
+cat ~/.ssh/id_rsa.pub
+```
+and add new key on this page where you paste the output from the previous command
+
+![SSH key](https://raw.githubusercontent.com/andreasuvoss/fedora-setup/main/blob/azure-ssh.png)

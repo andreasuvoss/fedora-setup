@@ -1,5 +1,8 @@
 #/bin/bash
 
+### Install nerd-font
+git clone --filter=blob:none --sparse git@github.com:ryanoasis/nerd-fonts; cd nerd-fonts; git sparse-checkout add patched-fonts/Hack; ./install.sh Hack; cd ..; rm -rf nerd-fonts;
+
 ### Gnome settings ###
 gsettings set org.gnome.desktop.session idle-delay 600
 gsettings set org.gnome.desktop.peripherals.mouse accel-profile flat 
@@ -23,7 +26,7 @@ gsettings set org.gnome.desktop.wm.keybindings switch-applications-backward  "[]
 
 # Dash to dock settings
 gsettings set org.gnome.shell.extensions.dash-to-dock show-trash false
-gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 32
+gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 28
 gsettings set org.gnome.shell.extensions.dash-to-dock running-indicator-style "SQUARES"
 gsettings set org.gnome.shell.extensions.dash-to-dock show-show-apps-button false
 gsettings set org.gnome.shell favorite-apps "[\
@@ -90,6 +93,9 @@ rm tilix.dconf
 sudo cp -v ~/.config/monitors.xml /var/lib/gdm/.config/
 sudo chown gdm:gdm /var/lib/gdm/.config/monitors.xml
 
+# Azure
+az config set core.output=table
+
 # Google setup
-# gcloud auth login
-# gcloud auth configure-docker europe-west3-docker.pkg.dev
+gcloud auth login
+gcloud auth configure-docker europe-west3-docker.pkg.dev
