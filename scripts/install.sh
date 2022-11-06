@@ -77,6 +77,7 @@ mkdir -p ~/repos/dotfiles
 git clone https://github.com/andreasuvoss/dotfiles.git ~/repos/dotfiles
 ln -sf ~/repos/dotfiles/nvim ~/.config
 ln -sf ~/repos/dotfiles/zsh ~/.config
+ln -sf ~/repos/dotfiles/idea/.ideavimrc ~/.ideavimrc
 nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 chsh -s $(which zsh)
 
