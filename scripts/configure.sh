@@ -90,12 +90,17 @@ dconf load /com/gexperts/Tilix/ < tilix.dconf
 rm tilix.dconf
 
 # GDM Monitors
-sudo cp -v ~/.config/monitors.xml /var/lib/gdm/.config/
-sudo chown gdm:gdm /var/lib/gdm/.config/monitors.xml
+if [ -f ~/.config/monitors.xml ]; then
+	sudo cp -v ~/.config/monitors.xml /var/lib/gdm/.config/
+    sudo chown gdm:gdm /var/lib/gdm/.config/monitors.xml
+fi
 
 # Azure
 az config set core.output=table
 
 # Google setup
-gcloud auth login
-gcloud auth configure-docker europe-west3-docker.pkg.dev
+if [ ! -f ~/.config/gcloud/application_default_credentials.json ]; then
+		gcloud auth login
+		gcloud auth application-default login
+		gcloud auth configure-docker europe-west3-docker.pkg.dev
+fi
