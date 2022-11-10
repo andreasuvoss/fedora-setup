@@ -48,3 +48,11 @@ cat ~/.ssh/id_rsa.pub
 and add new key on this page where you paste the output from the previous command
 
 ![SSH key](https://raw.githubusercontent.com/andreasuvoss/fedora-setup/main/blob/azure-ssh.png)
+
+### digital envelope routines::unsupported
+I've run into this issue when trying to start up Angular projects, this answer will help:
+
+https://stackoverflow.com/a/73064710/10478732
+
+### Remember .npmrc with credentials
+To get NPM packages from private Azure artifacts `~/.npmrc` with a PAT from Azure Devops

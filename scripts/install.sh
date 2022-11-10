@@ -83,7 +83,7 @@ chsh -s $(which zsh)
 
 # Generate SSH key
 if [ ! -f ~/.ssh/id_rsa ]; then
-	ssh-keygen -t rsa -N '' -f ~/.ssh/id_rsa;
+    ssh-keygen -t rsa -N '' -f ~/.ssh/id_rsa;
 fi
 
 # Add this in order to use SSH with Azure Devops git
