@@ -70,7 +70,8 @@ wget https://sqlopsbuilds.azureedge.net/stable/7553f799e175f471b7590302dd65c997b
 wget https://github.com/dracula/tilix/archive/master.zip && unzip master.zip && rm master.zip && mkdir -p ~/.config/tilix/schemes && mv -f ./tilix-master/Dracula.json ~/.config/tilix/schemes && rm -rf ./tilix-master
 
 # Install Yarn
-curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
+sudo npm install --global yarn
+sudo npm install --global prettier
 
 # Install zsh and nvim config 
 wget https://raw.githubusercontent.com/andreasuvoss/fedora-setup/main/config/.ideavimrc mv .ideavimrc ~; rm .ideavimrc
