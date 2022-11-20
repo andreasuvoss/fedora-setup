@@ -15,6 +15,7 @@ gsettings set org.gnome.desktop.background picture-uri-dark ""
 gsettings set org.gnome.desktop.background primary-color "#122938"
 gsettings set org.gnome.desktop.wm.preferences button-layout ":minimize,maximize,close"
 gsettings set org.gnome.nautilus.preferences default-folder-viewer list-view
+gsettings set org.gnome.nautilus.preferences always-use-location-entry true
 gsettings set org.gnome.mutter workspaces-only-on-primary false
 gsettings set com.gexperts.Tilix.Settings terminal-title-style none
 
