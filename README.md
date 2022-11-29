@@ -56,3 +56,6 @@ https://stackoverflow.com/a/73064710/10478732
 
 ### Remember .npmrc with credentials
 To get NPM packages from private Azure artifacts `~/.npmrc` with a PAT from Azure Devops
+
+### gThumb as default application for images
+Add `image/jpeg=org.gnome.gThumb.desktop` under `[Default Applications]` in `~/.config/mimeapps.list`.

@@ -48,7 +48,7 @@ sudo dnf config-manager --add-repo https://download.opensuse.org/repositories/sh
 sudo dnf copr -y enable yuezk/globalprotect-openconnect
 
 # Install from default repos
-sudo dnf install -y neovim dotnet-sdk-6.0 nodejs ulauncher gnome-shell-extension-appindicator jq wmctrl google-cloud-cli gnome-shell-extension-dash-to-dock papirus-icon-theme azure-cli enpass gtk-murrine-engine gtk2-engines helm pgadmin4 ffmpeg-libs discord tilix libgtop2-devel lm_sensors gnome-extensions-app gnome-tweaks remmina remmina-plugins-rdp zsh util-linux-user zsh-completions bat ripgrep tree-sitter-cli libstdc++-static libstdc++ gcc-c++ rust cargo globalprotect-openconnect
+sudo dnf install -y neovim dotnet-sdk-6.0 nodejs ulauncher gnome-shell-extension-appindicator jq wmctrl google-cloud-cli gnome-shell-extension-dash-to-dock papirus-icon-theme azure-cli enpass gtk-murrine-engine gtk2-engines helm pgadmin4 ffmpeg-libs discord tilix libgtop2-devel lm_sensors gnome-extensions-app gnome-tweaks remmina remmina-plugins-rdp zsh util-linux-user zsh-completions bat ripgrep tree-sitter-cli libstdc++-static libstdc++ gcc-c++ rust cargo globalprotect-openconnect gthumb lynx pandoc
 
 # Install flatpaks
 sudo flatpak install --noninteractive --assumeyes com.slack.Slack com.microsoft.Teams com.spotify.Client com.getpostman.Postman
