@@ -86,9 +86,13 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/or
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/ binding "'<Control><Alt>t'"
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/ command "'tilix'"
 
+# More Tilix
 wget https://raw.githubusercontent.com/andreasuvoss/fedora-setup/main/config/tilix.dconf
 dconf load /com/gexperts/Tilix/ < tilix.dconf
 rm tilix.dconf
+nautilus -q
+glib-compile-schemas ~/.local/share/glib-2.0/schemas/
+gsettings set com.github.stunkymonkey.nautilus-open-any-terminal terminal tilix
 
 # GDM Monitors
 if [ -f ~/.config/monitors.xml ]; then
