@@ -47,8 +47,11 @@ sudo dnf config-manager --add-repo https://download.opensuse.org/repositories/sh
 # VPN
 sudo dnf copr -y enable yuezk/globalprotect-openconnect
 
+# Starship
+sudo dnf copr -y enable atim/starship
+
 # Install from default repos
-sudo dnf install -y neovim dotnet-sdk-6.0 nodejs ulauncher gnome-shell-extension-appindicator jq wmctrl google-cloud-sdk-gke-gcloud-auth-plugin google-cloud-cli gnome-shell-extension-dash-to-dock papirus-icon-theme azure-cli enpass gtk-murrine-engine gtk2-engines helm pgadmin4 ffmpeg-libs discord tilix libgtop2-devel lm_sensors gnome-extensions-app gnome-tweaks remmina remmina-plugins-rdp zsh util-linux-user zsh-completions bat ripgrep tree-sitter-cli libstdc++-static libstdc++ gcc-c++ rust cargo globalprotect-openconnect gthumb lynx pandoc python3-pip python3-nautilus task kubectl
+sudo dnf install -y neovim dotnet-sdk-6.0 nodejs ulauncher gnome-shell-extension-appindicator jq wmctrl google-cloud-sdk-gke-gcloud-auth-plugin google-cloud-cli gnome-shell-extension-dash-to-dock papirus-icon-theme azure-cli enpass gtk-murrine-engine gtk2-engines helm pgadmin4 ffmpeg-libs discord tilix libgtop2-devel lm_sensors gnome-extensions-app gnome-tweaks remmina remmina-plugins-rdp zsh util-linux-user zsh-completions bat ripgrep tree-sitter-cli libstdc++-static libstdc++ gcc-c++ rust cargo globalprotect-openconnect gthumb lynx pandoc python3-pip python3-nautilus task kubectl starship
 
 pip install --user nautilus-open-any-terminal
 
@@ -86,6 +89,7 @@ git clone https://github.com/andreasuvoss/dotfiles.git ~/repos/dotfiles
 ln -sf ~/repos/dotfiles/nvim ~/.config
 ln -sf ~/repos/dotfiles/zsh ~/.config
 ln -sf ~/repos/dotfiles/idea/.ideavimrc ~/.ideavimrc
+ln -sf ~/repos/dotfiles/starship/starship.toml ~/.config/starship.toml
 nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 chsh -s $(which zsh)
 
