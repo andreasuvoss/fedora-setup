@@ -38,7 +38,6 @@ gsettings set org.gnome.shell favorite-apps "[\
 	'com.gexperts.Tilix.desktop',\
 	'com.getpostman.Postman.desktop',\
 	'pgadmin4.desktop',\
-	'azuredatastudio.desktop',\
 	'com.slack.Slack.desktop',\
 	'discord.desktop',\
 	'org.remmina.Remmina.desktop',\

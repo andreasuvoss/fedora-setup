@@ -48,7 +48,7 @@ sudo dnf config-manager --add-repo https://download.opensuse.org/repositories/sh
 sudo dnf copr -y enable yuezk/globalprotect-openconnect
 
 # Install from default repos
-sudo dnf install -y neovim dotnet-sdk-6.0 nodejs ulauncher gnome-shell-extension-appindicator jq wmctrl google-cloud-cli gnome-shell-extension-dash-to-dock papirus-icon-theme azure-cli enpass gtk-murrine-engine gtk2-engines helm pgadmin4 ffmpeg-libs discord tilix libgtop2-devel lm_sensors gnome-extensions-app gnome-tweaks remmina remmina-plugins-rdp zsh util-linux-user zsh-completions bat ripgrep tree-sitter-cli libstdc++-static libstdc++ gcc-c++ rust cargo globalprotect-openconnect gthumb lynx pandoc python3-pip python3-nautilus
+sudo dnf install -y neovim dotnet-sdk-6.0 nodejs ulauncher gnome-shell-extension-appindicator jq wmctrl google-cloud-sdk-gke-gcloud-auth-plugin google-cloud-cli gnome-shell-extension-dash-to-dock papirus-icon-theme azure-cli enpass gtk-murrine-engine gtk2-engines helm pgadmin4 ffmpeg-libs discord tilix libgtop2-devel lm_sensors gnome-extensions-app gnome-tweaks remmina remmina-plugins-rdp zsh util-linux-user zsh-completions bat ripgrep tree-sitter-cli libstdc++-static libstdc++ gcc-c++ rust cargo globalprotect-openconnect gthumb lynx pandoc python3-pip python3-nautilus task kubectl
 
 pip install --user nautilus-open-any-terminal
 
@@ -67,9 +67,6 @@ sudo dnf install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin 
 sudo usermod -aG docker $USER
 sudo systemctl start docker
 sudo systemctl enable docker
-
-# Install Azure Data Studio
-wget https://sqlopsbuilds.azureedge.net/stable/7553f799e175f471b7590302dd65c997b838b29b/azuredatastudio-linux-1.39.1.rpm && sudo dnf -y install azuredatastudio-linux-1.39.1.rpm && rm azuredatastudio-linux-1.39.1.rpm
 
 # Install Tilix Dracula theme
 wget https://github.com/dracula/tilix/archive/master.zip && unzip master.zip && rm master.zip && mkdir -p ~/.config/tilix/schemes && mv -f ./tilix-master/Dracula.json ~/.config/tilix/schemes && rm -rf ./tilix-master
