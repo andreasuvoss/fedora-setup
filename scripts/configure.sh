@@ -2,6 +2,7 @@
 
 ### Install nerd-font
 git clone --filter=blob:none --sparse https://github.com/ryanoasis/nerd-fonts.git; cd nerd-fonts; git sparse-checkout add patched-fonts/Hack; ./install.sh Hack; cd ..; rm -rf nerd-fonts;
+git clone --filter=blob:none --sparse https://github.com/ryanoasis/nerd-fonts.git; cd nerd-fonts; git sparse-checkout add patched-fonts/JetBrainsMono; ./install.sh JetBrainsMono; cd ..; rm -rf nerd-fonts;
 
 ### Gnome settings ###
 gsettings set org.gnome.desktop.session idle-delay 600
