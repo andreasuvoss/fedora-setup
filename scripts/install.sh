@@ -51,7 +51,7 @@ sudo dnf copr -y enable yuezk/globalprotect-openconnect
 sudo dnf copr -y enable atim/starship
 
 # Install from default repos
-sudo dnf install -y neovim dotnet-sdk-6.0 nodejs ulauncher gnome-shell-extension-appindicator jq wmctrl google-cloud-sdk-gke-gcloud-auth-plugin google-cloud-cli gnome-shell-extension-dash-to-dock papirus-icon-theme azure-cli enpass gtk-murrine-engine gtk2-engines helm pgadmin4 ffmpeg-libs discord tilix libgtop2-devel lm_sensors gnome-extensions-app gnome-tweaks remmina remmina-plugins-rdp zsh util-linux-user zsh-completions bat ripgrep tree-sitter-cli libstdc++-static libstdc++ gcc-c++ rust cargo globalprotect-openconnect gthumb lynx pandoc python3-pip python3-nautilus task kubectl starship
+sudo dnf install -y neovim dotnet-sdk-6.0 dotnet-sdk-7.0 nodejs ulauncher gnome-shell-extension-appindicator jq wmctrl google-cloud-sdk-gke-gcloud-auth-plugin google-cloud-cli gnome-shell-extension-dash-to-dock papirus-icon-theme azure-cli enpass gtk-murrine-engine gtk2-engines helm pgadmin4 ffmpeg-libs discord tilix libgtop2-devel lm_sensors gnome-extensions-app gnome-tweaks remmina remmina-plugins-rdp zsh util-linux-user zsh-completions bat ripgrep tree-sitter-cli libstdc++-static libstdc++ gcc-c++ rust cargo globalprotect-openconnect gthumb lynx pandoc python3-pip python3-nautilus task kubectl starship
 
 pip install --user nautilus-open-any-terminal
 
@@ -78,11 +78,8 @@ wget https://github.com/dracula/tilix/archive/master.zip && unzip master.zip && 
 sudo npm install --global yarn
 sudo npm install --global prettier
 
-# Install Stylua
-cargo install stylua
-
 # Install zsh and nvim config 
-git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+# git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 echo 'ZDOTDIR=$HOME/.config/zsh' > $HOME/.zshenv
 mkdir -p ~/repos/dotfiles
 git clone https://github.com/andreasuvoss/dotfiles.git ~/repos/dotfiles
@@ -90,7 +87,7 @@ ln -sf ~/repos/dotfiles/nvim ~/.config
 ln -sf ~/repos/dotfiles/zsh ~/.config
 ln -sf ~/repos/dotfiles/idea/.ideavimrc ~/.ideavimrc
 ln -sf ~/repos/dotfiles/starship/starship.toml ~/.config/starship.toml
-nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+# nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 chsh -s $(which zsh)
 
 # Generate SSH key
