@@ -59,3 +59,9 @@ To get NPM packages from private Azure artifacts `~/.npmrc` with a PAT from Azur
 
 ### gThumb as default application for images
 Add `image/jpeg=org.gnome.gThumb.desktop` under `[Default Applications]` in `~/.config/mimeapps.list`.
+
+### Autostart
+In the directory `~/.config/autostart` you will find the desktop entries for autostart (discord, steam, enpass, etc.)
+we want these to start minimized, we do that by adding the flags:
+* discord: `--start-minimized` 
+* steam: `-nochatui -nofriendsui -silent`
