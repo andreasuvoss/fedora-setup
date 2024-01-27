@@ -66,9 +66,18 @@ systemctl --user restart ulauncher
 # This might not work perfectly yet
 # I would like to automate this more, but shell scripting it kind of sucks.
 
+# Flameshot workaround for Wayland
+sudo tee /usr/local/bin/flameshot-gui-workaround > /dev/null <<'EOF'
+#!/bin/bash
+flameshot gui
+
+EOF
+
+sudo chmod a+x /usr/local/bin/flameshot-gui-workaround
+
 # In the for loop put the number of indicies you have defined shortcuts for
 total_list="[";
-for i in {0..1}; do
+for i in {0..2}; do
 	total_list+="'/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom${i}/', "
 done
 total_list=${total_list::-2};
@@ -85,6 +94,12 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/or
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/ name "'Terminal'"
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/ binding "'<Control><Alt>t'"
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/ command "'tilix'"
+
+# Flameshot shortcut
+gsettings set org.gnome.shell.keybindings show-screenshot-ui '[]'
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/ name "'Flameshot'"
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/ binding "'Print'"
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/ command "'/usr/local/bin/flameshot-gui-workaround'"
 
 # More Tilix
 wget https://raw.githubusercontent.com/andreasuvoss/fedora-setup/main/config/tilix.dconf

@@ -50,6 +50,7 @@ sudo dnf copr -y enable atim/starship
 # Install from default repos
 sudo dnf install -y \
     neovim \
+    flameshot \
     dotnet-sdk-6.0 \
     dotnet-sdk-7.0 \
     dotnet-sdk-8.0 \
