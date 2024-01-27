@@ -116,6 +116,8 @@ if [ -f ~/.config/monitors.xml ]; then
     sudo chown gdm:gdm /var/lib/gdm/.config/monitors.xml
 fi
 
+sudo echo 'GTK_THEME="Matcha-dark-azul"' >> /etc/environment
+
 # Azure
 az config set core.output=table
 
