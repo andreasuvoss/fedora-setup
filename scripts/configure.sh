@@ -5,7 +5,8 @@ git clone --filter=blob:none --sparse https://github.com/ryanoasis/nerd-fonts.gi
 git clone --filter=blob:none --sparse https://github.com/ryanoasis/nerd-fonts.git; cd nerd-fonts; git sparse-checkout add patched-fonts/JetBrainsMono; ./install.sh JetBrainsMono; cd ..; rm -rf nerd-fonts;
 
 ### Gnome settings ###
-gsettings set org.gnome.desktop.session idle-delay 600
+gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us+altgr-intl')]"
+gsettings set org.gnome.desktop.session idle-delay 120
 gsettings set org.gnome.desktop.peripherals.mouse accel-profile flat 
 gsettings set org.gnome.desktop.peripherals.mouse speed -0.24545454545454548
 gsettings set org.gnome.desktop.interface color-scheme prefer-dark
@@ -13,7 +14,7 @@ gsettings set org.gnome.desktop.wm.keybindings activate-window-menu "[]"
 gsettings set org.gnome.desktop.interface icon-theme Papirus
 gsettings set org.gnome.desktop.background picture-uri ""
 gsettings set org.gnome.desktop.background picture-uri-dark ""
-gsettings set org.gnome.desktop.background primary-color "#122938"
+gsettings set org.gnome.desktop.background primary-color "#000000"
 gsettings set org.gnome.desktop.wm.preferences button-layout ":minimize,maximize,close"
 gsettings set org.gnome.nautilus.preferences default-folder-viewer list-view
 gsettings set org.gnome.nautilus.preferences always-use-location-entry true

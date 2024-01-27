@@ -33,6 +33,7 @@ Not all gnome extension installations can be scripted, so a few will have to be 
 
 * https://github.com/corecoding/Vitals
 * https://github.com/gTile/gTile
+* https://gitlab.gnome.org/jrahmatzadeh/just-perfection
 
 ### Tilix config
 If changes are made to the Tilix configuration we can dump it to the tilix.dconf file.
