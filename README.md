@@ -35,6 +35,7 @@ Not all gnome extension installations can be scripted, so a few will have to be 
 * https://github.com/gTile/gTile
 * https://gitlab.gnome.org/jrahmatzadeh/just-perfection
 * https://gitlab.gnome.org/GNOME/gnome-shell-extensions
+* https://github.com/kazysmaster/gnome-shell-extension-disable-unredirect (fixes flickering dock)
 
 ### Tilix config
 If changes are made to the Tilix configuration we can dump it to the tilix.dconf file.
