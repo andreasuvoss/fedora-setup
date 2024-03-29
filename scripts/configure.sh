@@ -28,6 +28,7 @@ gsettings set org.gnome.desktop.wm.keybindings switch-applications "[]"
 gsettings set org.gnome.desktop.wm.keybindings switch-applications-backward  "[]"
 
 # Switch workspace shortcut (works on 60% keyboards)
+gsettings set org.freedesktop.ibus.panel.emoji hotkey "@as []"
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-left "['<Super>comma']"
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-right "['<Super>period']"
 
